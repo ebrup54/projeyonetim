@@ -12,6 +12,7 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler
     public class GorevAppService : IGorevAppService
     {
         private readonly IRepository<Gorev> _repository;
+      
         public GorevAppService(IRepository<Gorev> repository)
         {
             _repository = repository;
