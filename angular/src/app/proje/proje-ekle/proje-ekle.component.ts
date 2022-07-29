@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Injector, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AppComponentBase } from '@shared/app-component-base';
 import { ProjeEkleDto, ProjeServiceProxy, UserServiceProxy } from '@shared/service-proxies/service-proxies';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,38 +10,45 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./proje-ekle.component.css']
 })
 export class ProjeEkleComponent extends AppComponentBase implements OnInit {
-
   @Output() onSave = new EventEmitter<any>();
   saving = false;
   proje: ProjeEkleDto;
-
+  createProje:NgForm;
   constructor(
     injector: Injector,
-    private _projeServiceProxy: ProjeServiceProxy,
-
-    public bsModalRef: BsModalRef
+    private _projeServiceProxy: ProjeServiceProxy,    
+    public bsModalRef: BsModalRef,
+    
   ) {
     super(injector);
   }
 
-  ngOnInit(): void {
+  ngOnInit(){ 
   }
   save(){
+    
     this.saving = true;
-var input = new ProjeEkleDto();
-input.projeAdi = this.proje.projeAdi;
-input.description = this.proje.description;
+    var input = new ProjeEkleDto();
+    var inputAd = document.getElementById('projeAdi') as HTMLInputElement;
+    var inputDesc = document.getElementById('description') as HTMLInputElement;
+    var inputId = document.getElementById('musteriId') as HTMLInputElement;
 
-    // this._projeServiceProxy
-    // .create(input).subscribe(
-    //   () => {
-    //     this.notify.info(this.l('SavedSuccessfully'));
-    //     this.bsModalRef.hide();
-    //     this.onSave.emit();
-    //   },
-    //   () => {
-    //     this.saving = false;
-    //   }
-    // );
+    // var input.musteriAdi= <HTMLInputElement>document.getElementById('type').value
+    input.projeAdi = inputAd.value;
+    input.description = inputDesc.value;
+    input.musteriId=parseInt(inputId.value);
+    //console.log(input);
+
+    this._projeServiceProxy
+    .projeEkle(input).subscribe(
+      () => {
+        this.notify.info(this.l('SavedSuccessfully'));
+        this.bsModalRef.hide();
+        this.onSave.emit();
+      },
+      () => {
+        this.saving = false;
+      }
+    );
   }
 }

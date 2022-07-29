@@ -1,4 +1,4 @@
-<form class="form-horizontal" autocomplete="off" #createUserModal="ngForm"   (ngSubmit)="save()">
+<form class="form-horizontal" autocomplete="off" #createProjeForm="ngForm"   (ngSubmit)="save()">
     <abp-modal-header
     [title]="'CreateNewUser' | localize"
     (onCloseClick)="bsModalRef.hide()"
@@ -12,7 +12,8 @@
                         {{ "Proje Adı" | localize }}
                     </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="name" id="name" required maxlength="32">
+                        <input type="text" class="form-control" name="projeAdi" id="projeAdi"   ngModel
+                        #nameModel="ngModel" required maxlength="32">
                     </div>
                 </div>
                 <div class="form-group row required">
@@ -20,7 +21,17 @@
                         {{ "Açıklama" | localize }}
                     </label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="name" id="name" required maxlength="32">
+                        <input type="text" class="form-control" name="description" id="description"  ngModel
+                        #nameModel="ngModel" required maxlength="32">
+                    </div>
+                </div>
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="name">
+                        {{ "Musteri" | localize }}
+                    </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="musteriId" id="musteriId"  ngModel
+                        #nameModel="ngModel" required maxlength="32">
                     </div>
                 </div>
             </tab>
