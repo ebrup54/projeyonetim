@@ -11,7 +11,7 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler.GorevlerDtos
 {
     public class GorevDto
     {
-        public int? GorevId { get; set; }
+        public int GorevId { get; set; }
 
         public string GorevTanimi { get; set; }
         public DurumEnum Durum { get; set; }

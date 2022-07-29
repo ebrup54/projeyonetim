@@ -12,10 +12,12 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler
     public class GorevAppService : IGorevAppService
     {
         private readonly IRepository<Gorev> _repository;
+        private readonly IRepository<Proje> _proje;
       
-        public GorevAppService(IRepository<Gorev> repository)
+        public GorevAppService(IRepository<Gorev> repository, IRepository<Proje> proje)
         {
             _repository = repository;
+            _proje = proje;
         }
 
 
@@ -57,6 +59,25 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler
             };
         }
 
+        public async Task<List<GorevDto>> GetGorevByProject(int projectId)
+        {
+            //if (projectId==null)
+            //{
+            //    throw new UserFriendlyException("Geçersiz Proje Id");
+            //}
+
+            var entityList = await _repository.GetAllListAsync(x => x.ProjeID == projectId);
+
+            return entityList.Select(e => new GorevDto
+            {
+                GorevId = e.Id,
+                GorevTanimi = e.GorevTanimi,
+                ProjeID = e.ProjeID,
+                BaslamaZamani = e.BaslamaZamani,
+                DeveloperId = e.DeveloperId
+            }).ToList();
+
+        }
 
         public async Task GorevEkle(GorevEkleDto input)
         {
