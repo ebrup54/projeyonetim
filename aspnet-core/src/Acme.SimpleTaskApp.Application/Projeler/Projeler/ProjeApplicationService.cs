@@ -85,22 +85,21 @@ namespace Acme.SimpleTaskApp.Projeler.Projeler
 
 
 
-        public async Task ProjeEkle(ProjeEkleDto input)
+        public async Task<Proje> ProjeEkle(ProjeEkleDto input)
         {
             if (string.IsNullOrEmpty(input.ProjeAdi))
             {
                 throw new UserFriendlyException("Proje Adı Boş Olamaz");
             }
-         
+
 
             var entity = new Proje
             {
                 ProjeAdi = input.ProjeAdi,
                 Description = input.Description,
-                MusteriId=input.MusteriId,
+                MusteriId = input.MusteriId,
             };
-            await _repository.InsertAsync(entity);
-
+            return await _repository.InsertAsync(entity);
         }
 
 
