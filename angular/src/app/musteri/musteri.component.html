@@ -5,10 +5,10 @@
           <h1>{{ "Müşteri" | localize }}</h1>
         </div>
         <div class="col-6 text-right">
-          <a href="javascript:;"
-            class="btn bg-blue">
+          <a href="javascript:;" class="btn bg-blue" (click)="createMusteri()">
             <i class="fa fa-plus-square"></i>
-          </a>
+            {{ "Create" | localize }}
+        </a>
         </div>
       </div>
     </div>
@@ -40,15 +40,19 @@
             <table class="table table-striped table-bordered">
               <thead class="bg-light">
                 <tr>
-                  <th>{{ "MusteriName" | localize }}</th>
-                  <th>{{ "DisplayName" | localize }}</th>
+                  <th>{{ "Müşteri Id" | localize }}</th>
+                  <th>{{ "Müşteri Adı" | localize }}</th>
+                  <th>{{ "İletişim" | localize }}</th>
+                  <th>{{ "Açıklama" | localize }}</th>
                   <th style="width: 200px;">{{ "Actions" | localize }}</th>
                 </tr>
               </thead>
               <tbody>
                <tr  *ngFor = "let musteri of musteriler">
+                <td>{{musteri.musteriId}}</td>
                 <td>{{musteri.musteriAdi}}</td>
-                <td>{{musteri.description}}</td>
+                <td>{{musteri.iletisim}}</td>
+                <td>{{musteri.aciklama}}</td>
                 <td>
                   <button type="button"
                     class="btn btn-sm bg-secondary">

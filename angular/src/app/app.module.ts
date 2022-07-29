@@ -41,6 +41,10 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import { ProjeComponent } from './proje/proje.component';
 import { GorevComponent } from './gorev/gorev.component';
 import { MusteriComponent } from './musteri/musteri.component';
+import { ProjeEkleComponent } from './proje/proje-ekle/proje-ekle.component';
+import { EkleGorevComponent } from './gorev/ekle-gorev/ekle-gorev.component';
+import { MusteriEkleComponent } from './musteri/musteri-ekle/musteri-ekle.component';
+ 
 
 @NgModule({
   declarations: [
@@ -74,6 +78,9 @@ import { MusteriComponent } from './musteri/musteri.component';
     ProjeComponent,
     GorevComponent,
     MusteriComponent,
+    ProjeEkleComponent,
+    EkleGorevComponent,
+    MusteriEkleComponent,
   ],
   imports: [
     CommonModule,
