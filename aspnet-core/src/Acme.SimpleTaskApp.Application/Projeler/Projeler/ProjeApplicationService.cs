@@ -12,9 +12,11 @@ namespace Acme.SimpleTaskApp.Projeler.Projeler
     public class ProjeAppService : IProjeAppService
     {
         private readonly IRepository<Proje> _repository;
-        public ProjeAppService(IRepository<Proje> repository)
+        private readonly IRepository<Musteri> _musteri;
+        public ProjeAppService(IRepository<Proje> repository,IRepository<Musteri> musteri)
         {
             _repository = repository;
+            _musteri = musteri;
         }
 
 
@@ -22,12 +24,17 @@ namespace Acme.SimpleTaskApp.Projeler.Projeler
 
         public async Task<List<ProjeDto>> GetProjeList()
         {
-            //selam 
-            //var entitylist = await _repository.GetAll().Where(a => a.Musteri.FullName == "TEst")
-            //    .Take(10).Skip(0).ToListAsync();
-            //var toplamCount = await _repository.GetAll().Where(a => a.Musteri.FullName == "TEst").CountAsync();
+           /*
+                 Musterileri repositoryden ayrı olarak çekip musteriListten
+                Musteri bilgilerine ulasabiliriz
+
+                    PS . Yigit
+            */
            
             var entitylist = await _repository.GetAllListAsync();
+            var musteriId=entitylist.FirstOrDefault().MusteriId;
+            var musteriList=await _musteri.GetAsync(musteriId);
+
             return entitylist.Select(e => new ProjeDto
             {
                 ProjeId = e.Id,
@@ -35,7 +42,8 @@ namespace Acme.SimpleTaskApp.Projeler.Projeler
                 Description = e.Description,
                 BaslamaTarihi = e.BaslamaTarihi,
                 Durum= e.Durum,
-                BitisTarihi = e.BitisTarihi
+                BitisTarihi = e.BitisTarihi,
+                MusteriAdi=musteriList.MusteriAdi
             }).ToList();
         }
 
