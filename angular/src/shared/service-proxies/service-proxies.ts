@@ -659,6 +659,15 @@ export class MusteriServiceProxy {
 
 @Injectable()
 export class ProjeServiceProxy {
+    delete(projeId: number) {
+      throw new Error('Method not implemented.');
+    }
+    create(proje: any) {
+      throw new Error('Method not implemented.');
+    }
+    getAllPermissions() {
+      throw new Error('Method not implemented.');
+    }
     private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
