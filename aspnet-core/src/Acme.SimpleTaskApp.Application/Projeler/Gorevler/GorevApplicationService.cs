@@ -37,7 +37,24 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler
             }).ToList();
         }
 
+        public async Task<GorevDto> GetGorevById(int id)
+        {
+            var entity = await _repository.FirstOrDefaultAsync(id);
 
+            if (entity == null)
+            {
+                throw new UserFriendlyException("Geçersiz Gorev Id");
+            }
+
+            return new GorevDto()
+            {
+                GorevId = entity.Id,
+                GorevTanimi = entity.GorevTanimi,
+                ProjeID = entity.ProjeID,
+                BaslamaZamani = entity.BaslamaZamani,
+                DeveloperId = entity.DeveloperId
+            };
+        }
 
 
         public async Task GorevEkle(GorevEkleDto input)
