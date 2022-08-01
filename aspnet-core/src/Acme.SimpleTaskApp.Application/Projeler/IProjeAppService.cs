@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acme.SimpleTaskApp.Projeler.Projeler
+namespace Acme.SimpleTaskApp.Projeler
 {
     public interface IProjeAppService : IApplicationService
     {

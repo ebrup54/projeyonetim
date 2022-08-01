@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z9HcPxvzhhmK22fSwU8tm+GpTwzpl4jHRa67I4F0nc69Fu5hugKhzi7MyvM/rdZNti3PSa7XxDwqspBci8NSeA==",
+  "dgSpecHash": "k0UrTeCD9Y/2B/1s5ZlsnlKvCm5P/ubBI/B9VAB16eG1tuU+EhNXnZ1Cb84uNXjc9N0rpda5ss6JPabACHfJew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\test\\Acme.SimpleTaskApp.Tests\\Acme.SimpleTaskApp.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\test\\Acme.SimpleTaskApp.Tests\\Acme.SimpleTaskApp.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nigem\\.nuget\\packages\\abp\\7.3.0\\abp.7.3.0.nupkg.sha512",
     "C:\\Users\\Nigem\\.nuget\\packages\\abp.automapper\\7.3.0\\abp.automapper.7.3.0.nupkg.sha512",

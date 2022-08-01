@@ -70,3 +70,15 @@ C:\Users\Nigem\Desktop\source\abp3\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\D
 C:\Users\Nigem\Desktop\source\abp3\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\refint\Acme.SimpleTaskApp.Core.dll
 C:\Users\Nigem\Desktop\source\abp3\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.pdb
 C:\Users\Nigem\Desktop\source\abp3\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\ref\Acme.SimpleTaskApp.Core.dll
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\bin\Debug\net6.0\Acme.SimpleTaskApp.Core.deps.json
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\bin\Debug\net6.0\Acme.SimpleTaskApp.Core.dll
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\bin\Debug\net6.0\Acme.SimpleTaskApp.Core.pdb
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.csproj.AssemblyReference.cache
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.AssemblyInfoInputs.cache
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.AssemblyInfo.cs
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.dll
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\refint\Acme.SimpleTaskApp.Core.dll
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\Acme.SimpleTaskApp.Core.pdb
+C:\Users\Nigem\Source\Repos\projeyonetim\aspnet-core\src\Acme.SimpleTaskApp.Core\obj\Debug\net6.0\ref\Acme.SimpleTaskApp.Core.dll

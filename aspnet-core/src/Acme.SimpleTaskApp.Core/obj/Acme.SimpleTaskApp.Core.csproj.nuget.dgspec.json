@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj": {}
+    "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj": {
+    "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
         "projectName": "Acme.SimpleTaskApp.Core",
-        "projectPath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
+        "projectPath": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
         "packagesPath": "C:\\Users\\Nigem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\obj\\",
+        "outputPath": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nigem\\AppData\\Roaming\\NuGet\\NuGet.Config",

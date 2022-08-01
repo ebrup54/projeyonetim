@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JckLxZIBPoJP/4/BxaP6QZ3Epe9iFvCmNLtw4PsayKNJm54AfhQQF139TMh0QXlzdsLFaJExMLPsQKwMXs5IUw==",
+  "dgSpecHash": "aIC5FkjW1ruc5jYbyph8373jA0pdfYoVdb24WyQBa1jjtioD1nHt7pXH+jpIcdpPOBFx3yl7O/vdoHTLUioSOQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\Acme.SimpleTaskApp.Web.Host.csproj",
+  "projectFilePath": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\Acme.SimpleTaskApp.Web.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nigem\\.nuget\\packages\\abp\\7.3.0\\abp.7.3.0.nupkg.sha512",
     "C:\\Users\\Nigem\\.nuget\\packages\\abp.aspnetcore\\7.3.0\\abp.aspnetcore.7.3.0.nupkg.sha512",

@@ -7501,11 +7501,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Nigem\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
       "projectName": "Acme.SimpleTaskApp.Core",
-      "projectPath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
+      "projectPath": "C:\\Users\\Nigem\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\Acme.SimpleTaskApp.Core.csproj",
       "packagesPath": "C:\\Users\\Nigem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nigem\\Desktop\\source\\abp3\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\obj\\",
+      "outputPath": "C:\\Users\\Nigem\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nigem\\AppData\\Roaming\\NuGet\\NuGet.Config",

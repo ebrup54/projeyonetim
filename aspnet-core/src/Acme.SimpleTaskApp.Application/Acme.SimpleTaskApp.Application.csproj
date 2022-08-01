@@ -14,4 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Acme.SimpleTaskApp.Core\Acme.SimpleTaskApp.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Musteriler\MusteriAppService\" />
+  </ItemGroup>
 </Project>
