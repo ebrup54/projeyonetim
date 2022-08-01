@@ -18,6 +18,7 @@ using Acme.SimpleTaskApp.Authorization;
 using Acme.SimpleTaskApp.Authorization.Accounts;
 using Acme.SimpleTaskApp.Authorization.Roles;
 using Acme.SimpleTaskApp.Authorization.Users;
+using Acme.SimpleTaskApp.Projeler;
 using Acme.SimpleTaskApp.Roles.Dto;
 using Acme.SimpleTaskApp.Users.Dto;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +35,7 @@ namespace Acme.SimpleTaskApp.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -52,7 +54,8 @@ namespace Acme.SimpleTaskApp.Users
             _abpSession = abpSession;
             _logInManager = logInManager;
         }
-
+           
+       
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
             CheckCreatePermission();
