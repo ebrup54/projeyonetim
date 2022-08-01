@@ -1,22 +1,34 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using Abp.Timing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Acme.SimpleTaskApp.Projeler
 {
-    public class MusteriTalep : FullAuditedEntity
+    [Table("MusteriTalepler")]
+    public class MusteriTalep: FullAuditedEntity
     {
-        public string MusteriIstek { get; set; }
+        public string Talep { get; set; }
+
+        public int ProjeId { get; set; }
+        public Proje proje { get; set; }
+        public string Aciklama { get; set; }
+
+        public DateTime BaslamaTarih { get; set; }
+
+        public DateTime BitisTarih { get; set; }
+
+        public Musteri musteri { get; set; }
+
+
+        [ForeignKey(nameof(MusteriId))]
+        public int MusteriId { get; set; }
         //public MusteriTalep()
         //{
-
-        //    MusteriIstekTarihi = Clock.Now;
-
+        //    BaslamaTarih = DateTime.Now;
         //}
-        public DateTime MusteriIstekTarihi { get; set; }
     }
 }

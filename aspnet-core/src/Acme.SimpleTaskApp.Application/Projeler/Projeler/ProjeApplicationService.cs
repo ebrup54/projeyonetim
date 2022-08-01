@@ -1,19 +1,20 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.UI;
+using Acme.SimpleTaskApp.Projeler;
 using Acme.SimpleTaskApp.Projeler.Projeler.ProjelerDtos;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Acme.SimpleTaskApp.Projeler
+namespace Acme.SimpleTaskApp.Projeler.Projeler
 {
 
     public class ProjeAppService : IProjeAppService
     {
         private readonly IRepository<Proje> _repository;
         private readonly IRepository<Musteri> _musteri;
-        public ProjeAppService(IRepository<Proje> repository, IRepository<Musteri> musteri)
+        public ProjeAppService(IRepository<Proje> repository,IRepository<Musteri> musteri)
         {
             _repository = repository;
             _musteri = musteri;
@@ -140,6 +141,22 @@ namespace Acme.SimpleTaskApp.Projeler
             await _repository.UpdateAsync(entity);
 
         }
+
+
+
+        //Müşteri Açıklama Güncelleme
+        public async Task ProjeGuncelleMusteri(ProjeGuncelleDto input)
+        {
+         
+            
+            var entity = await _repository.GetAsync(input.ProjeId.Value);
+           
+            entity.Description = input.Description;
+
+            await _repository.UpdateAsync(entity);
+
+        }
+
 
 
         public async Task DeleteProje(int id)

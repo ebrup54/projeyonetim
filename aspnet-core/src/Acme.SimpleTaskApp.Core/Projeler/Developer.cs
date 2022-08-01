@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace Acme.SimpleTaskApp.Projeler
 {
-    [Table("Musteriler")]
-    public class Musteri : FullAuditedEntity
+    [Table("Developers")]
+    public class Developer:FullAuditedEntity
     {
-        public string MusteriAdi { get; set; }
-        public string Iletisim { get; set; }
-        public string Aciklama { get; set; }
-        public User User { get; set; }
+        public string DeveloperName { get; set; }
+        public string DeveloperSide { get; set; }
+        public int DeveloperCommits { get; set; }
 
+        public User User { get; set; }
         [ForeignKey(nameof(UserId))]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
+
     }
 }

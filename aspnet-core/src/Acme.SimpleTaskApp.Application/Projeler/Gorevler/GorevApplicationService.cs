@@ -113,9 +113,7 @@ namespace Acme.SimpleTaskApp.Projeler.Gorevler
             entity.Durum = input.Durum;
             entity.DeveloperId = input.DeveloperId;
 
-            await _repository.UpdateAsync(entity);
         }
-        
 
 
 

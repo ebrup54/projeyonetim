@@ -1,5 +1,4 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using Abp.Timing;
 using Acme.SimpleTaskApp.Authorization.Users;
 using Acme.SimpleTaskApp.Projeler;
 using System;
@@ -11,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace Acme.SimpleTaskApp.Projeler
 {
-
+    
     public class Proje : FullAuditedEntity
     {
         //id tanımlanmalı mı 
+       // public int ProjeId { get; set; }
         public string ProjeAdi { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Gorev> Gorevler { get; set; }
@@ -23,13 +23,15 @@ namespace Acme.SimpleTaskApp.Projeler
         public DateTime BaslamaTarihi { get; set; }
         public DateTime BitisTarihi { get; set; }
         public DateTime MusteriBitisTarihi { get; set; }
-       
 
         [ForeignKey(nameof(MusteriId))]
         public int MusteriId { get; set; }
         public virtual Musteri Musteri { get; set; }
-      
-    }
-}
 
-   
+
+
+
+
+    }
+
+}

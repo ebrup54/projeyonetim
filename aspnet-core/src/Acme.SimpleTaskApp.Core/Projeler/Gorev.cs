@@ -29,6 +29,7 @@ namespace Acme.SimpleTaskApp.Projeler
 
         [ForeignKey(nameof(ProjeID))]
         public int? ProjeID { get; set; }
+      
         public Gorev()
         {
 
