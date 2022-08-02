@@ -12,9 +12,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Acme.SimpleTaskApp.Core\Acme.SimpleTaskApp.Core.csproj" />
+    <Compile Remove="Musteriler\MusteriAppService\**" />
+    <EmbeddedResource Remove="Musteriler\MusteriAppService\**" />
+    <None Remove="Musteriler\MusteriAppService\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Musteriler\MusteriAppService\" />
+    <ProjectReference Include="..\Acme.SimpleTaskApp.Core\Acme.SimpleTaskApp.Core.csproj" />
   </ItemGroup>
 </Project>

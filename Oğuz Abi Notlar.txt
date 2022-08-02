@@ -1,0 +1,171 @@
+Görev App Servisi
+public async Task<List<GorevDto>> GetGorevList()
+        {
+            var entitylist = await _repository.GetAllListAsync();
+            //bitiş zamanı nerede?
+            return entitylist.Select(e => new GorevDto
+            {
+                GorevId = e.Id,
+                GorevTanimi = e.GorevTanimi,
+                ProjeID = e.ProjeID,
+                BaslamaZamani = e.BaslamaZamani,
+                DeveloperId = e.DeveloperId,
+                BitisZamani = e.BaslamaZamani,
+
+
+            }).ToList();
+        }
+
+        public async Task<GorevDto> GetGorevlerById(int id)
+        {
+            var entity = await _repository.FirstOrDefaultAsync(id);
+
+            if (entity == null)
+            {
+                throw new UserFriendlyException("Geçersiz Gorev Id");
+            }
+            //ProjeID ProjeId olarak düzeltin. Bir standarta uyun.
+            return new GorevDto()
+            {
+                GorevId = entity.Id,
+                GorevTanimi = entity.GorevTanimi,
+                ProjeID = entity.ProjeID,
+                BaslamaZamani = entity.BaslamaZamani,
+                DeveloperId = entity.DeveloperId
+            };
+        }
+        //isimlendirme kötü görev değil görevleri alıyor
+        public async Task<List<GorevDto>> GetGorevByProject(int projectId)
+        {
+            //if (projectId==null)
+            //{
+            //    throw new UserFriendlyException("Geçersiz Proje Id");
+            //}
+            //burayı tek satıra sığdırmayı deneyin
+            var entityList = await _repository.GetAllListAsync(x => x.ProjeID == projectId);
+
+            return entityList.Select(e => new GorevDto
+            {
+                GorevId = e.Id,
+                GorevTanimi = e.GorevTanimi,
+                ProjeID = e.ProjeID,
+                BaslamaZamani = e.BaslamaZamani,
+                DeveloperId = e.DeveloperId
+            }).ToList();
+
+        }
+
+
+
+
+Proje App Servisi
+ //sayfadaki gereksiz boş satırlardan kurtulun
+    public class ProjeAppService : IProjeAppService
+    {
+        private readonly IRepository<Proje> _repository;
+        private readonly IRepository<Musteri> _musteri;
+        public ProjeAppService(IRepository<Proje> repository,IRepository<Musteri> musteri)
+        {
+            _repository = repository;
+            _musteri = musteri;
+        }
+
+        
+            //yorumlarınızı daha anlaşılır ve daha düzgün formatta yazın
+            //mümkünse yazdığınız kodda yoruma ihtiyaç olmasın.
+            //isimlendirmeler ile çözün
+
+
+        
+        public async Task<List<ProjeDto>> GetProjeList(int musteriIdtest)
+        {
+            /*
+                  Musterileri repositoryden ayrı olarak çekip musteriListten
+                 Musteri bilgilerine ulasabiliriz
+
+                     PS . Yigit
+             */
+
+
+            //todo örnek include
+            var test = await _repository.GetAll().Where(a=>a.MusteriId == 415).Include(a=>a.Musteri).ToListAsync();
+            //üstteki kodu pazartesi günü herkes okumayı öğrenmiş olacak
+           
+            //yazdığınız kodu okumayı öğrenin
+            //testini yapın
+            //bu buraya nasıl gelmiş olabilir hiç mi test yapmıyorsunuz?
+            //oğuz
+
+            var getList = await _repository.GetAll().Where(a => a.MusteriId == musteriIdtest).Include(a=>a.Musteri).ThenInclude(a=>a.User).Skip(0).Take(10).ToListAsync();
+            var getSingle = getList.FirstOrDefault();
+            return getList.Select(e => new ProjeDto
+            {
+                ProjeId = e.Id,
+                ProjeAdi = e.ProjeAdi,
+                Description = e.Description,
+                BaslamaTarihi = e.BaslamaTarihi,
+                Durum = e.Durum,
+                BitisTarihi = e.BitisTarihi,
+                MusteriAdi = e.Musteri.MusteriAdi,
+            }).ToList();
+            //var entitylist = await _repository.GetAllListAsync();            
+            //var musteriList=await _musteri.GetAsync(musteriId);
+
+            //return entitylist.Select(e => new ProjeDto
+            //{
+            //    ProjeId = e.Id,
+            //    ProjeAdi = e.ProjeAdi,
+            //    Description = e.Description,
+            //    BaslamaTarihi = e.BaslamaTarihi,
+            //    Durum= e.Durum,
+            //    BitisTarihi = e.BitisTarihi,
+            //    MusteriAdi=musteriList.MusteriAdi
+            //}).ToList();
+        }
+
+
+        //Müşteri için Proje görüntüleme tablosu
+
+        public async Task<List<Proje>> GetProjeListMusteri(int musteriId)
+        {
+            var entitylist = await _repository.GetAllListAsync();
+            //neden müşterinin projelerini çekerken veri tabanındaki tüm listeyi çekiyorsunuz
+            //sistemde kayıtlı 3 milyon proje olsa ve istediğiniz müşterinin 3 projesi olsa
+            //3 milyon kayıt ile ne başarmayı hedefliyorsunuz
+            var projezart = new List<Proje>();
+            //böyle isimlendirme görürsem döverim
+            var project = new List<Proje>();
+            int Control = 0;
+            foreach (var item in entitylist)
+            {
+                //gerçekten mi?
+                if (item.Id == musteriId)
+                {
+                    project.Add(item);
+                    Control++;
+                }
+            }
+            if (Control > 0)
+            {
+                //GERÇEKTEN Mİ?
+                return project.Select(e => new Proje
+                {
+                    ProjeAdi = e.ProjeAdi,
+                    Description = e.Description,
+                    BaslamaTarihi = e.BaslamaTarihi,
+                    Durum = e.Durum,
+                    MusteriBitisTarihi = e.MusteriBitisTarihi,
+                }).ToList();
+
+            }
+            else
+            {
+                throw new UserFriendlyException("Projeniz Bulunmamaktadır");
+            }
+        }
+
+
+
+
+
+

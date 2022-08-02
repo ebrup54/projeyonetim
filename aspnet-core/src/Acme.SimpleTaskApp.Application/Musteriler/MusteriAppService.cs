@@ -80,7 +80,7 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
         }
 
 
-        public async Task MusteriTalepEkle(MusteriEkleDto input)
+        public async Task MusteriTalepEkle(MusteriTalepEkleDto input)
         {
             if (input.ProjeId == 0)
             {
@@ -88,8 +88,8 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
             }
             var entity = new MusteriTalep
             {
-                MusteriIstek = input.MusteriIstek,
-                MusteriIstekTarihi = input.MusteriIstekTarihi,
+                Talep  = input.MusteriTalep,
+                BaslamaTarih = input.BaslamaTarihi,
             };
 
 
