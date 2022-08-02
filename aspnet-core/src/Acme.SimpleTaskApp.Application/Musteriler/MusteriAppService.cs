@@ -1,9 +1,22 @@
-﻿using Abp.Authorization;
+﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Abp.IdentityFramework;
+using Abp.Runtime.Session;
 using Abp.UI;
-using Acme.SimpleTaskApp.Musteriler.MusterilerDto;
+using Acme.SimpleTaskApp.Authorization;
+using Acme.SimpleTaskApp.Authorization.Roles;
+using Acme.SimpleTaskApp.Authorization.Users;
 using Acme.SimpleTaskApp.Projeler;
 using Acme.SimpleTaskApp.Projeler.Customers.CustomersDtos;
+using Acme.SimpleTaskApp.Projeler.Gorevler.GorevlerDtos;
+using Acme.SimpleTaskApp.Projeler.Musteriler.MusteriTalep;
+using Acme.SimpleTaskApp.Roles.Dto;
+using Acme.SimpleTaskApp.Users;
+using Acme.SimpleTaskApp.Users.Dto;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +29,7 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
     {
         private readonly IRepository<Musteri> _repository;
         private readonly IRepository<MusteriTalep> _talepRepository;
-        public MusteriAppService(IRepository<Musteri> repository,IRepository<MusteriTalep> talepRepository)
+        public MusteriAppService(IRepository<Musteri> repository, IRepository<MusteriTalep> talepRepository)
         {
             _repository = repository;
             _talepRepository = talepRepository;
@@ -26,20 +39,50 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
 
         public async Task<List<MusteriDto>> GetMusteriList()
         {
-            var entitylist = await _repository.GetAllListAsync();
+            var entitylist = await _repository.GetAll().Include(a=>a.User).ToListAsync();
+            
+
             return entitylist.Select(e => new MusteriDto
             {
-              
+                MusteriId = e.Id,
                 MusteriAdi = e.MusteriAdi,
                 Aciklama = e.Aciklama,
                 Iletisim = e.Iletisim,
-                UserId = e.UserId,
+                UserId=e.User.Id,
+                Username=e.User.UserName,
             }).ToList();
         }
 
+        public async Task<MusteriDto> GetMusteriById(int musteriId)
+        {
+            var entity = await _repository.GetAll().Where(a => a.Id == musteriId).Include(a => a.User).FirstOrDefaultAsync();
+
+            return new MusteriDto()
+            {
+                MusteriId=entity.Id,
+                MusteriAdi=entity.MusteriAdi,
+                //müşteriler usera gelince düzelecek
+                //UserId=entity.User.Id,
+                //Username = entity.User.UserName,
+            };
+        }
+
+        public async Task<MusteriTalepDuzenleDto> MusteriTalepUpdate(int talepId)
+        {
+            var entity = await _talepRepository.GetAll().Where(a => a.Id == talepId).Include(a => a.musteri).Include(a => a.proje).FirstOrDefaultAsync();
+
+            return new MusteriTalepDuzenleDto()
+            {
+                MusteriAciklama = entity.Aciklama,
+                MusteriTalep = entity.Talep,
+                BaslangicTarih = DateTime.Now,
+                ProjeId = entity.ProjeId,
+            };
+        }
 
         public async Task MusteriEkle(MusteriEkleDto input)
-        {
+        {          
+                        
             if (string.IsNullOrEmpty(input.MusteriAdi))
             {
                 throw new UserFriendlyException("Müsteri Adı Boş Olamaz");
@@ -48,14 +91,15 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
             {
                 MusteriAdi = input.MusteriAdi,
                 Aciklama = input.Aciklama,
-                Iletisim = input.Iletisim,
+                Iletisim = input.Iletisim,   
+                
             };
             await _repository.InsertAsync(entity);
         }
+        
 
 
 
-        //[AbpAuthorize(MyPermissions.UpdatingMusteri)]
         public async Task MusteriGuncelle(MusteriGuncelleDto input)
         {
             //if (!input.CustomerId.HasValue || input.CustomerId == 0)
@@ -79,8 +123,7 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
             await _repository.UpdateAsync(entity);
         }
 
-
-        public async Task MusteriTalepEkle(MusteriEkleDto input)
+        public async Task MusteriTalepEkle(MusteriTalepEkleDto input)
         {
             if (input.ProjeId == 0)
             {
@@ -88,15 +131,17 @@ namespace Acme.SimpleTaskApp.Projeler.Customers
             }
             var entity = new MusteriTalep
             {
-                MusteriIstek = input.MusteriIstek,
-                MusteriIstekTarihi = input.MusteriIstekTarihi,
+                MusteriId = input.Musteri.Id,
+                ProjeId=input.ProjeId,
+                Talep=input.MusteriTalep,
+                Aciklama=input.MusteriAciklama,
+                BaslamaTarih=DateTime.Now,
+
             };
 
-
             await _talepRepository.InsertAsync(entity);
-
         }
-        public async Task DeleteMusteri(int id)
+            public async Task DeleteMusteri(int id)
         {
             await _repository.DeleteAsync(id);
         }
