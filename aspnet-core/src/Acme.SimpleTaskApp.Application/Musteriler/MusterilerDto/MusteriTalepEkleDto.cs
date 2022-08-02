@@ -9,8 +9,8 @@ namespace Acme.SimpleTaskApp.Musteriler.MusterilerDto
     public class MusteriTalepEkleDto
     {
         public int? ProjeId { get; set; }
-        public string MusteriIstek { get; set; }
-        public DateTime MusteriIstekTarihi { get; set; }    
+        public string MusteriTalep { get; set; }
+        public DateTime BaslamaTarihi { get; set; }    
 
     }
 }

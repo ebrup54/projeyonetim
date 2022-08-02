@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BG3qvyMDZR5qTkRnkOW698CJpSjkkJ6TpA4L0PLjrwE=",
+  "Hash": "jWuFiAbaSyaQ6SB3zd5qk+VkPAT8UDdJcxO+ly3AuEA=",
   "Source": "Acme.SimpleTaskApp.Web.Host",
   "BasePath": "_content/Acme.SimpleTaskApp.Web.Host",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Acme.SimpleTaskApp.Web.Host\\wwwroot",
       "Source": "Acme.SimpleTaskApp.Web.Host",
-      "ContentRoot": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Tarık\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
       "BasePath": "_content/Acme.SimpleTaskApp.Web.Host",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\swagger\\ui\\abp.js",
+      "Identity": "C:\\Users\\Tarık\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\swagger\\ui\\abp.js",
       "SourceId": "Acme.SimpleTaskApp.Web.Host",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Tarık\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
       "BasePath": "_content/Acme.SimpleTaskApp.Web.Host",
       "RelativePath": "swagger/ui/abp.js",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\swagger\\ui\\abp.js"
     },
     {
-      "Identity": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\swagger\\ui\\abp.swagger.js",
+      "Identity": "C:\\Users\\Tarık\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\swagger\\ui\\abp.swagger.js",
       "SourceId": "Acme.SimpleTaskApp.Web.Host",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nigem\\source\\repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Tarık\\Source\\Repos\\projeyonetim\\aspnet-core\\src\\Acme.SimpleTaskApp.Web.Host\\wwwroot\\",
       "BasePath": "_content/Acme.SimpleTaskApp.Web.Host",
       "RelativePath": "swagger/ui/abp.swagger.js",
       "AssetKind": "All",
